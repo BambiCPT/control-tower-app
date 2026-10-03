@@ -1,0 +1,11 @@
+<div class="container">
+  @if (viewMode === 'login') {
+    <login-page
+      (authModeChange)="changeViewMode($event)"
+    ></login-page>
+  } @else {
+    <registration-page
+      (authModeChange)="changeViewMode($event)"
+    ></registration-page>
+  }
+</div>

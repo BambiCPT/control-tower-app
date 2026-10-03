@@ -1,0 +1,21 @@
+<div class="registration-container">
+  <form [formGroup]="registrationForm">
+    <div class="header">Create an account, Cadet</div>
+    <mat-form-field required="true">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username"/>
+    </mat-form-field>
+    <mat-form-field required="true">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email"/>
+    </mat-form-field>
+    <mat-form-field required="true">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password"/>
+    </mat-form-field>
+  </form>
+  <div class="buttons">
+    <button class="register-btn" matButton="tonal" (click)="createAccount()">Create Account</button>
+    <button class="login-btn" matButton (click)="switchToLogin()">Already have an account? Log in</button>
+  </div>
+</div>
