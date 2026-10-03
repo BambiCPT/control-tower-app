@@ -1,0 +1,30 @@
+import { Component, inject, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
+import { MatButtonModule } from "@angular/material/button";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+
+@Component({
+    selector: 'login-page',
+    templateUrl: './login-component.html',
+    styleUrl: './login-component.scss',
+    standalone: true,
+    imports: [MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule]
+})
+export class LoginComponent implements OnInit {
+  private _formBuilder = inject(FormBuilder);
+
+  public loginForm: FormGroup = this._formBuilder.group({
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+    })
+  
+
+  public ngOnInit(): void {
+  }
+
+  public forgotPassword(): void {
+    
+  }
+}

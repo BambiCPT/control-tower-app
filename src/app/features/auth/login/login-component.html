@@ -1,0 +1,28 @@
+<div class=container>
+  <div class="content">
+    <div class="form-container">
+      <div class="header">
+        <span>On Standby</span>
+        <span>Good to see you again!</span>
+      </div>
+      <form [formGroup]="loginForm"  >
+        <mat-form-field required="true" >
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username"/>
+        </mat-form-field>
+        <mat-form-field required="true">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password"/>
+        </mat-form-field>
+      </form>
+      <button class="forgot-password-btn" matButton (click)="forgotPassword()">Forgot your password?</button>
+      <button class="login-btn" matButton="tonal">Log in</button>
+      <div class="registration-button">
+        <span>Not cleared for takeoff?</span>
+        <button matButton (click)="openRegistration()" >Register</button>
+      </div>
+    </div>
+    <!-- picture -->
+    <div></div> 
+  </div>
+</div>
