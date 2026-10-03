@@ -27,4 +27,8 @@ export class LoginComponent implements OnInit {
   public forgotPassword(): void {
     
   }
+
+  public openRegistration(): void {
+    
+  }
 }
