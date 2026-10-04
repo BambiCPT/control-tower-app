@@ -15,7 +15,7 @@
     </mat-form-field>
   </form>
   <div class="buttons">
-    <button class="register-btn" matButton="tonal" (click)="createAccount()">Create Account</button>
+    <button class="register-btn" matButton="tonal" (click)="createAccount()" [disabled]="registrationForm.invalid || registrationForm.pristine" >Create Account</button>
     <button class="login-btn" matButton (click)="switchToLogin()">Already have an account? Log in</button>
   </div>
 </div>
