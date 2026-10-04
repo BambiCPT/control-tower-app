@@ -22,8 +22,8 @@ export class RegistrationComponent {
 
   public registrationForm = this._formBuilder.nonNullable.group({
     username: ['', Validators.required],
-    email: ['', Validators.required, Validators.email],
-    password: ['', Validators.required, Validators.minLength(8)]
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(8)]]
   })
 
   public createAccount(): void {
@@ -34,9 +34,11 @@ export class RegistrationComponent {
     } = this.registrationForm.getRawValue()
     const data: Partial<User> = { username, email, password }
     this._authService.registerUser(data).pipe(takeUntilDestroyed(this._destroyRef)).subscribe({
-      next: (res) => {
-        
+      next: () => {
+        this.switchToLogin();
       },
+
+      
       error: (error) => {
         console.error(error);
       }
