@@ -1,0 +1,4 @@
+// Global entry. Add to angular.json "styles": ["src/styles.scss"].
+@use 'styles/tokens';
+@use 'styles/base';
+@use 'styles/controls';

@@ -1,0 +1,32 @@
+// Work Sans 400/500/600/700. Self-host the files for production and replace this import.
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg-main);
+  color: var(--text);
+  font: 400 15px/24px var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input { font-family: inherit; }
+
+// Text type styles (utility classes; use sparingly, prefer component styles).
+.t-wordmark { font: 700 24px/32px var(--font-sans); }
+.t-title-lg { font: 600 22px/28px var(--font-sans); }
+.t-title    { font: 600 16px/20px var(--font-sans); }
+.t-body     { font: 400 15px/24px var(--font-sans); }
+.t-strong   { font: 600 15px/24px var(--font-sans); }
+.t-sm       { font: 400 14px/20px var(--font-sans); }
+.t-caption  { font: 400 13px/16px var(--font-sans); }
+.t-muted    { color: var(--text-muted); }
+
+// Single focus ring used by every focusable control except inputs/composer (they turn their border sage).
+@mixin ant-focus-ring($offset: 2px) {
+  outline: 2px solid var(--sage-ring);
+  outline-offset: $offset;
+}
