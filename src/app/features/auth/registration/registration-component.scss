@@ -1,16 +1,10 @@
-@use '../../../../styles.scss';
+.registration {
+  width: 100%;
+  max-width: 400px;
 
-.registration-container {
-  display: flex;
-  flex-direction: column;
-
-  form {
+  &__fields {
     display: flex;
     flex-direction: column;
-  }
-
-  .buttons {
-    display: flex;
-    flex-direction: column;
+    gap: var(--ct-space-4);
   }
 }

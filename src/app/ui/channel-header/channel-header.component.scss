@@ -1,0 +1,13 @@
+@use '../../../styles/typography' as *;
+
+.ct-channel-header {
+  position: relative; display: flex; align-items: center; gap: var(--ct-space-3);
+  height: var(--ct-header-height); padding: 0 var(--ct-space-4) 0 var(--ct-space-6);
+  background: var(--ct-bg-panel); border-bottom: 1px solid var(--ct-border-default);
+  &__lead { display: flex; --ct-dot-ring-color: var(--ct-bg-panel); }
+  &__titles { flex: 1; min-width: 0; }
+  &__title { margin: 0; @include ct-type(conversation-name); color: var(--ct-text-primary); }
+  &__subtitle { margin: 0; @include ct-type(helper); color: var(--ct-text-secondary); }
+  &__actions { display: flex; align-items: center; gap: var(--ct-space-1); }
+  &--underline::after { content: ''; position: absolute; left: var(--ct-space-6); bottom: -1px; width: 48px; height: 3px; background: var(--ct-accent); }
+}

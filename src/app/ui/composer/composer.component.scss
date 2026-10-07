@@ -1,0 +1,16 @@
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.ct-composer-wrap { padding: 0 var(--ct-space-8) var(--ct-space-6); &__typing { height: var(--ct-space-6); display: flex; align-items: flex-end; padding-bottom: var(--ct-space-1); } }
+
+.ct-composer {
+  display: flex; align-items: center; gap: var(--ct-space-2); min-height: var(--ct-composer-height); padding: 0 var(--ct-space-3) 0 var(--ct-space-2);
+  background: var(--ct-bg-raised); border: 1px solid var(--ct-bg-column); border-radius: var(--ct-radius-lg);
+  &:focus-within { @include ct-focus-ring-accent; }
+  &--disabled { background: var(--ct-bg-inset-disabled); }
+  &__input {
+    flex: 1; min-width: 0; resize: none; max-height: 160px; padding: var(--ct-space-4) var(--ct-space-1);
+    border: 0; outline: none; background: transparent; color: var(--ct-text-primary); @include ct-type(message);
+    &::placeholder { color: var(--ct-text-muted); }
+  }
+}

@@ -1,0 +1,19 @@
+<div class="ct-menu" role="menu">
+  <div class="ct-menu__inner">
+    @for (item of items(); track item.id) {
+      @if (item.dividerBefore) {
+        <hr class="ct-menu__divider" />
+      }
+      <button class="ct-menu__item" [class.ct-menu__item--active]="item.active" type="button" role="menuitem"
+              (click)="picked.emit(item.id)">
+        @if (item.icon) {
+          <ct-icon [name]="item.icon" [size]="20" />
+        }
+        @if (item.status) {
+          <ct-status-dot [status]="item.status" />
+        }
+        <span>{{ item.label }}</span>
+      </button>
+    }
+  </div>
+</div>

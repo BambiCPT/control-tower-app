@@ -1,4 +1,2 @@
-// Global entry. Add to angular.json "styles": ["src/styles.scss"].
-@use 'styles/tokens';
-@use 'styles/base';
-@use 'styles/controls';
+// Global entry. Control Tower kit tokens, typography and base styles.
+@use 'styles/styles';

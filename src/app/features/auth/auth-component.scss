@@ -3,5 +3,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: var(--ct-space-5);
+  background: var(--ct-bg-rail);
 }

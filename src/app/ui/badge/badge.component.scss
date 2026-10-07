@@ -1,0 +1,9 @@
+@use '../../../styles/typography' as *;
+
+.ct-badge {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  min-width: var(--ct-badge-size); height: var(--ct-badge-size); padding: 0 var(--ct-space-1);
+  border-radius: var(--ct-radius-full); background: var(--ct-danger); color: var(--ct-danger-on);
+  @include ct-type(badge);
+  &--sm { min-width: var(--ct-badge-size-sm); height: var(--ct-badge-size-sm); padding: 0 var(--ct-space-1); }
+}

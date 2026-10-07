@@ -1,0 +1,10 @@
+@use '../../../styles/typography' as *;
+
+.ct-error {
+  display: flex; align-items: center; gap: var(--ct-space-3); padding: var(--ct-space-3) var(--ct-space-4);
+  background: var(--ct-bg-inset); border: 1px solid var(--ct-danger); border-radius: var(--ct-radius-lg);
+  &__icon { flex: none; color: var(--ct-danger); }
+  &__text { flex: 1; min-width: 0; }
+  &__title { margin: 0; @include ct-type(username); color: var(--ct-text-primary); }
+  &__description { margin: 0; @include ct-type(helper); color: var(--ct-text-secondary); }
+}
