@@ -1,0 +1,15 @@
+// Global entry. Add to angular.json "styles". Component styles import only mixins/typography.
+@use 'typography' as *;
+@use 'tooltip';
+@use 'tokens';
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0; background: var(--ct-bg-rail); color: var(--ct-text-primary);
+  @include ct-type(message);
+  -webkit-font-smoothing: antialiased;
+}
+button, input, textarea, select { font: inherit; }
+:focus-visible { outline: none; }
+::placeholder { color: var(--ct-text-muted); opacity: 1; }
+ct-icon, ct-badge, ct-status-dot, ct-avatar, ct-button, ct-icon-button { display: contents; }

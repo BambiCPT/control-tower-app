@@ -1,0 +1,31 @@
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.ct-select {
+  --ct-dot-ring-color: transparent;
+  position: relative; display: flex; flex-direction: column; gap: var(--ct-space-2);
+  &__label { @include ct-type(username); font-size: 13px; line-height: 16px; }
+  &__control {
+    @include ct-reset-button;
+    display: flex; align-items: center; gap: var(--ct-space-3); height: var(--ct-control-height); padding: 0 var(--ct-space-3);
+    background: var(--ct-bg-inset); border: 1px solid var(--ct-border-default); border-radius: var(--ct-radius-sm);
+    color: var(--ct-text-primary); @include ct-type(input);
+    &:focus-visible { @include ct-focus-ring-accent; }
+    &:disabled { background: var(--ct-bg-inset-disabled); color: var(--ct-text-muted); cursor: not-allowed; }
+  }
+  &--open &__control { border-color: var(--ct-accent); }
+  &__value { flex: 1; }
+  &__chevron { margin-left: auto; color: var(--ct-text-primary); }
+  &__list {
+    position: absolute; top: 100%; left: 0; right: 0; z-index: 10; margin: var(--ct-space-1) 0 0; padding: var(--ct-space-1);
+    list-style: none; background: var(--ct-bg-column); border: 1px solid var(--ct-border-default);
+    border-radius: var(--ct-radius-sm); box-shadow: var(--ct-shadow-menu);
+  }
+  &__option {
+    display: flex; align-items: center; gap: var(--ct-space-3); height: var(--ct-control-height); padding: 0 var(--ct-space-3);
+    border-radius: var(--ct-radius-sm); cursor: pointer; @include ct-type(input);
+    &--active { background: var(--ct-bg-raised); }
+  }
+  &__option-label { flex: 1; }
+  &__check { color: var(--ct-accent); }
+}

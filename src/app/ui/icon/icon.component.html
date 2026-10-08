@@ -1,0 +1,6 @@
+<svg class="ct-icon" [attr.width]="size()" [attr.height]="size()" viewBox="0 0 24 24"
+     fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  @for (d of paths(); track d) {
+    <path [attr.d]="d" />
+  }
+</svg>

@@ -1,0 +1,22 @@
+@use '../../../styles/mixins' as *;
+
+.ct-icon-button {
+  @include ct-reset-button;
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: var(--ct-control-height); height: var(--ct-control-height);
+  border-radius: var(--ct-radius-sm); color: var(--ct-text-secondary);
+  @include ct-dim-transition(background-color, color, box-shadow);
+
+  &--sm { width: var(--ct-avatar-md); height: var(--ct-avatar-md); }
+  &:focus-visible { @include ct-focus-ring; }
+  &:disabled { cursor: not-allowed; color: var(--ct-text-muted); }
+
+  &--ghost:hover:not(:disabled), &--ghost[aria-pressed='true'] { background: var(--ct-bg-hover); color: var(--ct-text-primary); }
+  &--secondary { background: var(--ct-bg-control); color: var(--ct-text-primary); box-shadow: var(--ct-shadow-raised);
+    &:hover:not(:disabled) { background: var(--ct-bg-control-hover); }
+    &:active:not(:disabled) { background: var(--ct-bg-control-active); }
+    &:focus-visible { box-shadow: var(--ct-shadow-focus); } }
+  &--primary { background: var(--ct-accent); color: var(--ct-accent-on);
+    &:hover:not(:disabled) { background: var(--ct-accent-hover); }
+    &:active:not(:disabled) { background: var(--ct-accent-active); } }
+}

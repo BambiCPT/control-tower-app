@@ -1,0 +1,15 @@
+<button class="ct-server-icon" [class]="'ct-server-icon ct-server-icon--' + state() + (markSrc() ? ' ct-server-icon--mark' : '')"
+        type="button" [attr.aria-label]="ariaLabel()" [attr.aria-current]="state() === 'active' ? 'page' : null"
+        [ctTooltip]="name()" ctTooltipPlacement="right" (click)="selected.emit()">
+  <span class="ct-server-icon__tick" aria-hidden="true"></span>
+  <span class="ct-server-icon__tile">
+    @if (markSrc(); as src) {
+      <img class="ct-server-icon__mark" [src]="src" alt="" />
+    } @else {
+      {{ label() }}
+    }
+  </span>
+  @if (state() === 'unread' && count() > 0) {
+    <ct-badge class="ct-server-icon__badge" size="sm" [count]="count()" />
+  }
+</button>

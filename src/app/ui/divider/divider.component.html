@@ -1,0 +1,7 @@
+<div class="ct-divider" [class]="'ct-divider ct-divider--' + variant()" role="separator" [attr.aria-label]="label()">
+  <span class="ct-divider__line"></span>
+  <span class="ct-divider__label">{{ label() }}</span>
+  @if (variant() === 'date') {
+    <span class="ct-divider__line"></span>
+  }
+</div>

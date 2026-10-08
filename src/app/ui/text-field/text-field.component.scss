@@ -1,0 +1,29 @@
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.ct-field {
+  display: flex; flex-direction: column; gap: var(--ct-space-2); min-width: 0;
+
+  &__label { @include ct-type(username); font-size: 13px; line-height: 16px; color: var(--ct-text-primary); }
+
+  &__control {
+    display: flex; align-items: center; gap: var(--ct-space-2);
+    height: var(--ct-control-height); padding: 0 var(--ct-space-3);
+    background: var(--ct-bg-inset); border: 1px solid var(--ct-border-default); border-radius: var(--ct-radius-sm);
+    color: var(--ct-text-secondary);
+    @include ct-dim-transition(border-color, box-shadow);
+    &:focus-within { @include ct-focus-ring-accent; }
+  }
+  &__control.ct-field--locked { background: var(--ct-bg-inset-disabled); color: var(--ct-text-muted); }
+  &__input {
+    flex: 1; min-width: 0; height: 100%; padding: 0; border: 0; outline: none; background: transparent;
+    @include ct-type(input); color: var(--ct-text-primary);
+    &:disabled, &[readonly] { color: var(--ct-text-muted); cursor: not-allowed; }
+  }
+  &__icon { flex: none; }
+
+  &--filled &__control { height: var(--ct-search-height); background: var(--ct-bg-field-filled); border-color: transparent; }
+  &--filled &__control:focus-within { border-color: var(--ct-accent); }
+  &--invalid &__control { border-color: var(--ct-danger); }
+  &__error { @include ct-type(helper); color: var(--ct-text-primary); }
+}

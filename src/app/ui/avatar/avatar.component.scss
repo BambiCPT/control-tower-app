@@ -1,0 +1,26 @@
+@use '../../../styles/typography' as *;
+
+.ct-avatar {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: var(--ct-avatar-md); height: var(--ct-avatar-md);
+  color: var(--ct-text-primary); background: var(--ct-avatar-1);
+  @include ct-type(initials);
+
+  &--xs { width: var(--ct-avatar-xs); height: var(--ct-avatar-xs); font-size: 9px; line-height: 12px; }
+  &--sm { width: var(--ct-avatar-sm); height: var(--ct-avatar-sm); font-size: 12px; }
+  &--md { width: var(--ct-avatar-md); height: var(--ct-avatar-md); }
+  &--xl { width: var(--ct-avatar-xl); height: var(--ct-avatar-xl); font-size: 34px; line-height: 40px; }
+
+  &--square { border-radius: var(--ct-radius-md); }
+  &--square.ct-avatar--xl { border-radius: var(--ct-radius-xl); }
+  &--circle { border-radius: var(--ct-radius-full); }
+
+  &--tone-1 { background: var(--ct-avatar-1); }
+  &--tone-2 { background: var(--ct-avatar-2); }
+  &--tone-3 { background: var(--ct-avatar-3); }
+  &--tone-4 { background: var(--ct-avatar-4); }
+  &--tone-self { background: var(--ct-accent); color: var(--ct-accent-on); }
+
+  &__status { position: absolute; right: calc(var(--ct-space-half) * -1); bottom: calc(var(--ct-space-half) * -1); display: block; }
+  &--xl &__status { right: var(--ct-space-1); bottom: var(--ct-space-1); }
+}

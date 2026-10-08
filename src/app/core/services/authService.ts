@@ -1,10 +1,10 @@
 import { HttpClient } from "@angular/common/http";
 import { User } from "../../models/user";
 import { computed, inject, Injectable, signal } from "@angular/core";
-import { Observable, takeUntil, tap } from "rxjs";
+import { Observable, tap } from "rxjs";
 
+@Injectable({ providedIn: 'root'})
 export class AuthService {
-  @Injectable({ providedIn: 'root'})
   private _http = inject(HttpClient);
   private _apiUrl = `http://localhost:8001`;
 

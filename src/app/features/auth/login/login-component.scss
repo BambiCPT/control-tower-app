@@ -1,20 +1,23 @@
+@use '../../../../styles/typography' as *;
 
-.login-container {
-  height: 6rem;
-  width: 4rem;
+.login {
+  width: 100%;
+  max-width: 400px;
+  min-width: 400px;
 
-  .content {
+  &__fields {
     display: flex;
     flex-direction: column;
-
-    form {
-      display: flex;
-      flex-direction: column;
-
-      .buttons {
-        display: flex;
-        flex-direction: column;
-      }
-    }
+    gap: var(--ct-space-4);
   }
+
+  &__lede {
+    margin: 0;
+    color: var(--ct-text-secondary);
+    @include ct-type(message);
+  }
+}
+
+:host ::ng-deep footer.ct-card__footer {
+  justify-content: space-between !important;
 }
