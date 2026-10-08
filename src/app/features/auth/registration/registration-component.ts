@@ -35,8 +35,6 @@ export class RegistrationComponent {
       next: () => {
         this.switchToLogin();
       },
-
-      
       error: (error) => {
         console.error(error);
       }
