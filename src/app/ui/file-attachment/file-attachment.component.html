@@ -1,0 +1,7 @@
+<a class="ct-file" [attr.href]="href()" [attr.download]="href() ? name() : null">
+  <ct-icon class="ct-file__icon" name="file" [size]="24" />
+  <span class="ct-file__text">
+    <span class="ct-file__name">{{ name() }}</span>
+    <span class="ct-file__meta">{{ meta() }}</span>
+  </span>
+</a>

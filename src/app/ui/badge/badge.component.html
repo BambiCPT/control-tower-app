@@ -1,0 +1,3 @@
+@if (count() > 0) {
+  <span class="ct-badge" [class]="'ct-badge ct-badge--' + size()" [attr.aria-label]="count() + ' unread'">{{ text() }}</span>
+}

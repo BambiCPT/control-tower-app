@@ -1,0 +1,32 @@
+<div class="ct-select" [class.ct-select--open]="open()">
+  @if (label()) {
+    <span class="ct-select__label" [id]="id + '-label'">{{ label() }}</span>
+  }
+  <button class="ct-select__control" type="button" role="combobox" [attr.aria-labelledby]="label() ? id + '-label' : null"
+          aria-haspopup="listbox" [attr.aria-expanded]="open()" [attr.aria-controls]="id + '-list'"
+          [disabled]="disabled()" (click)="toggle()" (keydown)="onKey($event)">
+    @if (selected(); as s) {
+      @if (s.status) {
+        <ct-status-dot [status]="s.status" />
+      }
+      <span class="ct-select__value">{{ s.label }}</span>
+    }
+    <ct-icon class="ct-select__chevron" [name]="open() ? 'chevron-up' : 'chevron-down'" [size]="20" />
+  </button>
+  @if (open()) {
+    <ul class="ct-select__list" role="listbox" [id]="id + '-list'">
+      @for (o of options(); track o.value; let i = $index) {
+        <li class="ct-select__option" role="option" [class.ct-select__option--active]="i === activeIndex()"
+            [attr.aria-selected]="o.value === value()" (click)="choose(o)" (mouseenter)="activeIndex.set(i)">
+          @if (o.status) {
+            <ct-status-dot [status]="o.status" />
+          }
+          <span class="ct-select__option-label">{{ o.label }}</span>
+          @if (o.value === value()) {
+            <ct-icon class="ct-select__check" name="check" [size]="20" />
+          }
+        </li>
+      }
+    </ul>
+  }
+</div>

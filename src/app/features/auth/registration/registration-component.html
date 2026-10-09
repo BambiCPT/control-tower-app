@@ -1,21 +1,24 @@
-<div class="registration-container">
-  <form [formGroup]="registrationForm">
-    <div class="header">Create an account, Cadet</div>
-    <mat-form-field required="true">
-      <mat-label>Username</mat-label>
-      <input matInput formControlName="username"/>
-    </mat-form-field>
-    <mat-form-field required="true">
-      <mat-label>Email</mat-label>
-      <input matInput formControlName="email"/>
-    </mat-form-field>
-    <mat-form-field required="true">
-      <mat-label>Password</mat-label>
-      <input matInput formControlName="password"/>
-    </mat-form-field>
-  </form>
-  <div class="buttons">
-    <button class="register-btn" matButton="tonal" (click)="createAccount()" [disabled]="registrationForm.invalid || registrationForm.pristine" >Create Account</button>
-    <button class="login-btn" matButton (click)="switchToLogin()">Already have an account? Log in</button>
-  </div>
-</div>
+<form class="registration" [formGroup]="registrationForm" (ngSubmit)="createAccount()">
+  <ct-card heading="Create an account, Cadet">
+    <div class="registration__fields">
+      <ct-text-field
+        label="Username"
+        [value]="registrationForm.controls.username.value"
+        (valueChange)="registrationForm.controls.username.setValue($event)" />
+      <ct-text-field
+        label="Email"
+        type="email"
+        [value]="registrationForm.controls.email.value"
+        (valueChange)="registrationForm.controls.email.setValue($event)" />
+      <ct-text-field
+        label="Password"
+        type="password"
+        [value]="registrationForm.controls.password.value"
+        (valueChange)="registrationForm.controls.password.setValue($event)" />
+    </div>
+    <ng-container ctCardFooter>
+      <ct-button variant="ghost" (click)="switchToLogin()">Already have an account?</ct-button>
+      <ct-button variant="primary" type="submit" [disabled]="registrationForm.invalid">Create Account</ct-button>
+    </ng-container>
+  </ct-card>
+</form>

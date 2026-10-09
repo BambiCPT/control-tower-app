@@ -1,0 +1,10 @@
+<div class="ct-error" role="alert">
+  <ct-icon class="ct-error__icon" name="alert" [size]="20" />
+  <div class="ct-error__text">
+    <p class="ct-error__title">{{ title() }}</p>
+    @if (description()) {
+      <p class="ct-error__description">{{ description() }}</p>
+    }
+  </div>
+  <ct-button variant="secondary" (click)="retry.emit()">{{ retryLabel() }}</ct-button>
+</div>

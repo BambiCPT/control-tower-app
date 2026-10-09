@@ -1,0 +1,40 @@
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.ct-server-icon {
+  @include ct-reset-button;
+  position: relative; display: flex; align-items: center; justify-content: center;
+  width: var(--ct-rail-width); height: var(--ct-server-icon);
+
+  &__tile {
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+    width: var(--ct-server-icon); height: var(--ct-server-icon);
+    border-radius: var(--ct-radius-lg);
+    background: var(--ct-bg-hover); border: 1px solid var(--ct-border-default);
+    color: var(--ct-text-primary);
+    @include ct-type(username);
+    font-weight: 700;
+    @include ct-dim-transition(background-color, border-color);
+  }
+  &__mark { width: 100%; height: 100%; display: block; object-fit: cover; }
+  &--mark &__tile { border: 0; background: transparent; }
+
+  &__tick {
+    position: absolute; left: 0; top: 50%; width: var(--ct-server-tick-width); height: 0;
+    transform: translateY(-50%); border-radius: 0 var(--ct-radius-sm) var(--ct-radius-sm) 0;
+    background: transparent; @include ct-dim-transition(height, background-color);
+  }
+  &__badge { position: absolute; right: calc(var(--ct-rail-width) / 2 - var(--ct-server-icon) / 2 - var(--ct-space-1)); bottom: calc(var(--ct-space-1) * -1); display: block; }
+
+  &:hover:not(&--active) &__tile { background: var(--ct-bg-raised); border-color: var(--ct-border-strong); }
+  &:hover:not(&--active):not(&--unread) &__tick { height: var(--ct-space-4); background: var(--ct-border-strong); }
+  &:focus-visible &__tile { @include ct-focus-ring; }
+
+  &--active &__tile { border: 2px solid var(--ct-accent); background: var(--ct-bg-hover); }
+  &--active &__tick { height: var(--ct-server-tick-height); background: var(--ct-accent); }
+  &--mark#{&}--active &__tile { background: transparent; }
+
+  &--unread &__tick { height: var(--ct-space-2); background: var(--ct-text-primary); }
+  &--muted &__tile { background: var(--ct-bg-hover); border-color: transparent; color: var(--ct-border-strong); }
+  &--muted:hover &__tile { color: var(--ct-text-muted); }
+}

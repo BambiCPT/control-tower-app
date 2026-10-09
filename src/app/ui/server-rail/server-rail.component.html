@@ -1,0 +1,14 @@
+<nav class="ct-server-rail" aria-label="Servers">
+  <ct-server-icon label="DM" name="Direct messages" [markSrc]="markSrc()"
+                  [state]="dmActive() ? 'active' : 'default'" (selected)="dmSelected.emit()" />
+  <span class="ct-server-rail__divider" aria-hidden="true"></span>
+  @for (s of servers(); track s.id) {
+    <ct-server-icon [label]="s.label" [name]="s.name" [state]="s.state" [count]="s.count ?? 0"
+                    (selected)="serverSelected.emit(s.id)" />
+  }
+  <span class="ct-server-rail__divider" aria-hidden="true"></span>
+  <button class="ct-server-rail__add" type="button" aria-label="Add a server" ctTooltip="Add a server"
+          ctTooltipPlacement="right" (click)="addServer.emit()">
+    <ct-icon name="plus" [size]="24" />
+  </button>
+</nav>

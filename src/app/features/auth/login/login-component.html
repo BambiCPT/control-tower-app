@@ -1,28 +1,20 @@
-<div class=login-container>
-  <div class="content">    
-    <form [formGroup]="loginForm">
-      <div class="header">
-        <span>On Standby</span>
-        <span>Good to see you again!</span>
-      </div>
-      <mat-form-field required="true" >
-        <mat-label>Username</mat-label>
-        <input matInput formControlName="username"/>
-      </mat-form-field>
-      <mat-form-field required="true">
-        <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password"/>
-      </mat-form-field>
-      <button class="forgot-password-btn" matButton (click)="forgotPassword()">Forgot your password?</button>
-      <div class="buttons">
-        <button class="login-btn" matButton="tonal">Log in</button>
-        <div class="registration-button">
-          <span>Not cleared for takeoff?</span>
-          <button matButton (click)="switchToRegistration()" >Register</button>
-        </div>
-      </div>
-    </form>    
-    <!-- picture -->
-    <div></div> 
-  </div>
-</div>
+<form class="login" [formGroup]="loginForm" (ngSubmit)="login()">
+  <ct-card heading="On Standby">
+    <div class="login__fields">
+      <p class="login__lede">Good to see you again!</p>
+      <ct-text-field
+        label="Email"
+        [value]="loginForm.controls.email.value"
+        (valueChange)="loginForm.controls.email.setValue($event)" />
+      <ct-text-field
+        label="Password"
+        type="password"
+        [value]="loginForm.controls.password.value"
+        (valueChange)="loginForm.controls.password.setValue($event)" />
+    </div>
+    <div class="button-container" ctCardFooter>
+      <ct-button variant="ghost" (click)="switchToRegistration()">Not cleared for takeoff?</ct-button>
+      <ct-button variant="primary" type="submit" [disabled]="loginForm.invalid">Log in</ct-button>
+    </div>
+  </ct-card>
+</form>

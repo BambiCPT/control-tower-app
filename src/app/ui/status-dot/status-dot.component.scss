@@ -1,0 +1,9 @@
+// Set --ct-dot-ring-color on a parent to match the surface behind the avatar.
+.ct-status-dot {
+  display: inline-block; flex: none; box-sizing: border-box;
+  width: var(--ct-dot-size); height: var(--ct-dot-size); border-radius: var(--ct-radius-full);
+  box-shadow: 0 0 0 2px var(--ct-dot-ring-color, var(--ct-bg-column));
+  &--online { background: var(--ct-status-online); }
+  &--idle { background: var(--ct-status-idle); }
+  &--offline { background: var(--ct-dot-ring-color, var(--ct-bg-column)); border: 2px solid var(--ct-status-offline); }
+}

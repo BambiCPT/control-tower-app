@@ -1,0 +1,23 @@
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.ct-dm-item {
+  @include ct-reset-button;
+  --ct-dot-ring-color: var(--ct-bg-column);
+  position: relative; display: flex; align-items: center; gap: var(--ct-space-3);
+  width: 100%; height: var(--ct-row-height); padding: 0 var(--ct-space-3);
+  background: transparent; @include ct-dim-transition(background-color);
+
+  &:hover { background: var(--ct-bg-hover); --ct-dot-ring-color: var(--ct-bg-hover); }
+  &:focus-visible { box-shadow: inset var(--ct-shadow-focus); }
+  &--selected, &--selected:hover { background: var(--ct-bg-raised); --ct-dot-ring-color: var(--ct-bg-raised); }
+  &--selected::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: var(--ct-server-tick-width); background: var(--ct-accent); }
+
+  &__avatar { display: block; }
+  &__text { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+  &__name { @include ct-type(username); color: var(--ct-text-primary); @include ct-truncate; }
+  &__preview { @include ct-type(helper); color: var(--ct-text-secondary); @include ct-truncate; }
+  &--unread &__preview { color: var(--ct-text-primary); }
+  &__meta { display: flex; flex-direction: column; align-items: flex-end; gap: var(--ct-space-1); flex: none; min-width: var(--ct-badge-size); }
+  &__time { @include ct-type(timestamp); font-weight: 400; color: var(--ct-text-secondary); }
+}

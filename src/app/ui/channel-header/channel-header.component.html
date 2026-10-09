@@ -1,0 +1,10 @@
+<header class="ct-channel-header" [class.ct-channel-header--underline]="underline()">
+  <div class="ct-channel-header__lead"><ng-content select="[ctHeaderAvatar]" /></div>
+  <div class="ct-channel-header__titles">
+    <h1 class="ct-channel-header__title">{{ title() }}</h1>
+    @if (subtitle()) {
+      <p class="ct-channel-header__subtitle">{{ subtitle() }}</p>
+    }
+  </div>
+  <div class="ct-channel-header__actions"><ng-content select="[ctHeaderActions]" /></div>
+</header>

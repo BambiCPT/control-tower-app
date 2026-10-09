@@ -1,10 +1,10 @@
 import { HttpClient } from "@angular/common/http";
 import { User } from "../../models/user";
 import { computed, inject, Injectable, signal } from "@angular/core";
-import { Observable, takeUntil, tap } from "rxjs";
+import { Observable, tap } from "rxjs";
 
+@Injectable({ providedIn: 'root'})
 export class AuthService {
-  @Injectable({ providedIn: 'root'})
   private _http = inject(HttpClient);
   private _apiUrl = `http://localhost:8001`;
 
@@ -12,7 +12,7 @@ export class AuthService {
   public isLoggedIn = computed<boolean>(() => this._token() !== null)
 
   public registerUser(user: Partial<User>): Observable<User> {
-    return this._http.post<User>(`${this._apiUrl}/register`, user);
+    return this._http.post<User>(`${this._apiUrl}/auth/register`, user);
   };
 
   public getToken(): string | null {
@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   public login(userCredentials: Partial<User>): Observable<any> {
-    return this._http.post<any>(`${this._apiUrl}/login`, userCredentials).pipe(tap(response => {
+    return this._http.post<any>(`${this._apiUrl}/auth/login`, userCredentials).pipe(tap(response => {
       localStorage.setItem('access_token', response.token);
       this._token.set(response.token);
     }))
