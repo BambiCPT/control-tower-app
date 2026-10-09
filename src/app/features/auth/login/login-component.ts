@@ -19,7 +19,7 @@ export class LoginComponent {
   authModeChange = output<'registration'>();
 
   public loginForm = this._formBuilder.nonNullable.group({
-      username: ['', [Validators.required]],
+      email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.required]]
     })
 
