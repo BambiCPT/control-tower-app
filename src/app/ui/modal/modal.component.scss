@@ -1,0 +1,11 @@
+@use '../../../styles/typography' as *;
+
+.ct-modal__scrim { position: fixed; inset: 0; z-index: 900; display: flex; align-items: center; justify-content: center; padding: var(--ct-space-6); background: var(--ct-bg-scrim); }
+.ct-modal {
+  width: 100%; max-width: 440px; background: var(--ct-bg-panel); border: 1px solid var(--ct-border-default); border-radius: var(--ct-radius-lg);
+  box-shadow: var(--ct-shadow-menu); overflow: hidden;
+  &__header { margin: 0; padding: var(--ct-space-4) var(--ct-space-6); background: var(--ct-bg-hover); border-bottom: 1px solid var(--ct-border-default);
+    @include ct-type(section-label); text-transform: uppercase; color: var(--ct-text-secondary); }
+  &__body { padding: var(--ct-space-6); @include ct-type(message); color: var(--ct-text-primary); }
+  &__footer { display: flex; justify-content: flex-end; gap: var(--ct-space-2); padding: var(--ct-space-4) var(--ct-space-6); border-top: 1px solid var(--ct-border-default); }
+}

@@ -1,0 +1,21 @@
+<article class="ct-message" [class.ct-message--continued]="continued()">
+  <div class="ct-message__gutter">
+    @if (continued()) {
+      <time class="ct-message__gutter-time">{{ time() }}</time>
+    } @else {
+      <ct-avatar [name]="author()" size="md" shape="circle" [tone]="tone()" />
+    }
+  </div>
+  <div class="ct-message__body">
+    @if (!continued()) {
+      <header class="ct-message__header">
+        <span class="ct-message__author">{{ author() }}</span>
+        <time class="ct-message__time">{{ time() }}</time>
+      </header>
+    }
+    <div class="ct-message__text"><ng-content /></div>
+  </div>
+  <button class="ct-message__more" type="button" aria-label="More actions" (click)="more.emit()">
+    <ct-icon name="more" [size]="20" />
+  </button>
+</article>

@@ -1,0 +1,12 @@
+<div class="ct-empty">
+  <span class="ct-empty__tile">
+    @if (markSrc(); as src) {
+      <img class="ct-empty__mark" [src]="src" alt="" />
+    }
+  </span>
+  <p class="ct-empty__title">{{ title() }}</p>
+  @if (description()) {
+    <p class="ct-empty__text">{{ description() }}</p>
+  }
+  <div class="ct-empty__action"><ng-content select="[ctEmptyAction]" /></div>
+</div>

@@ -1,0 +1,8 @@
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--ct-space-5);
+  background: var(--ct-bg-rail);
+}

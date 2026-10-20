@@ -1,0 +1,14 @@
+.ct-shell {
+  display: grid; height: 100vh; background: var(--ct-bg-rail); color: var(--ct-text-primary);
+  grid-template-columns: var(--ct-rail-width) var(--ct-column-width) 1fr;
+  grid-template-rows: 1fr var(--ct-dock-height);
+  grid-template-areas: 'rail column panel' 'dock dock panel';
+
+  &__rail { grid-area: rail; min-height: 0; }
+  &__column { grid-area: column; min-height: 0; overflow-y: auto; background: var(--ct-bg-column); }
+  &__dock { grid-area: dock; background: var(--ct-bg-rail); border-top: 1px solid var(--ct-bg-hover); padding: 0 var(--ct-space-2); display: flex; align-items: center; }
+  &__panel { grid-area: panel; display: flex; min-width: 0; min-height: 0; margin: var(--ct-space-3) var(--ct-space-3) var(--ct-space-3) 0;
+    background: var(--ct-bg-panel); border: 1px solid var(--ct-border-default); border-radius: var(--ct-radius-xl); overflow: hidden; }
+  &__main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  &__members { flex: none; width: var(--ct-column-width); padding: var(--ct-space-4); background: var(--ct-bg-column); border-left: 1px solid var(--ct-border-default); overflow-y: auto; }
+}

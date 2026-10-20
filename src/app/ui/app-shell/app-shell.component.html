@@ -1,0 +1,11 @@
+<div class="ct-shell" [class.ct-shell--members]="members()">
+  <div class="ct-shell__rail"><ng-content select="[ctShellRail]" /></div>
+  <div class="ct-shell__column"><ng-content select="[ctShellColumn]" /></div>
+  <div class="ct-shell__dock"><ng-content select="[ctShellDock]" /></div>
+  <main class="ct-shell__panel">
+    <div class="ct-shell__main"><ng-content select="[ctShellMain]" /></div>
+    @if (members()) {
+      <aside class="ct-shell__members"><ng-content select="[ctShellMembers]" /></aside>
+    }
+  </main>
+</div>

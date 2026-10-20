@@ -1,0 +1,8 @@
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.ct-member {
+  --ct-dot-ring-color: var(--ct-bg-column);
+  display: flex; align-items: center; gap: var(--ct-space-3); height: var(--ct-avatar-md);
+  &__name { @include ct-type(message); color: var(--ct-text-primary); @include ct-truncate; }
+}

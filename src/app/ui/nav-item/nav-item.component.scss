@@ -1,0 +1,13 @@
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.ct-nav-item {
+  @include ct-reset-button;
+  position: relative; display: flex; align-items: center; gap: var(--ct-space-3); width: 100%; height: var(--ct-control-height);
+  padding: 0 var(--ct-space-4); border-radius: var(--ct-radius-sm); color: var(--ct-text-secondary); @include ct-type(input);
+  @include ct-dim-transition(background-color, color);
+  &:hover { background: var(--ct-bg-hover); color: var(--ct-text-primary); }
+  &:focus-visible { @include ct-focus-ring; }
+  &--active, &--active:hover { background: var(--ct-bg-raised); color: var(--ct-text-primary); font-weight: 600; }
+  &--active::before { content: ''; position: absolute; left: calc(var(--ct-space-4) * -1 + var(--ct-space-4) * 0); top: 0; bottom: 0; width: var(--ct-server-tick-width); background: var(--ct-accent); }
+}

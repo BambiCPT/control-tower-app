@@ -1,0 +1,19 @@
+@use '../../../styles/mixins' as *;
+
+.ct-server-rail {
+  display: flex; flex-direction: column; align-items: center; gap: var(--ct-space-3);
+  width: var(--ct-rail-width); padding: var(--ct-space-3) 0; background: var(--ct-bg-rail);
+  height: 100%; overflow-y: auto;
+
+  &__divider { width: var(--ct-space-8); height: var(--ct-space-half); border-radius: var(--ct-radius-sm); background: var(--ct-border-default); }
+  &__add {
+    @include ct-reset-button;
+    display: flex; align-items: center; justify-content: center;
+    width: var(--ct-server-icon); height: var(--ct-server-icon);
+    border: 1px dashed var(--ct-border-strong); border-radius: var(--ct-radius-lg); background: transparent;
+    color: var(--ct-text-secondary);
+    @include ct-dim-transition(color, border-color);
+    &:hover { color: var(--ct-text-primary); border-color: var(--ct-text-secondary); }
+    &:focus-visible { @include ct-focus-ring; }
+  }
+}

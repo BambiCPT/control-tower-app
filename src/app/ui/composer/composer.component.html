@@ -1,0 +1,13 @@
+<div class="ct-composer-wrap">
+  <div class="ct-composer-wrap__typing">
+    @if (typingLabel()) {
+      <ct-typing-indicator [label]="typingLabel()" />
+    }
+  </div>
+  <div class="ct-composer" [class.ct-composer--disabled]="disabled()">
+    <ct-icon-button icon="plus" label="Attach a file" variant="ghost" [disabled]="disabled()" (click)="attach.emit()" />
+    <textarea class="ct-composer__input" rows="1" [placeholder]="'Message ' + target()" [value]="draft()"
+              [disabled]="disabled()" [attr.aria-label]="'Message ' + target()" (input)="onInput($event)" (keydown)="onKey($event)"></textarea>
+    <ct-icon-button icon="send" label="Send message" variant="primary" size="sm" [disabled]="!canSend()" (click)="send()" />
+  </div>
+</div>

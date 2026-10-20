@@ -1,0 +1,6 @@
+<button class="ct-nav-item" [class.ct-nav-item--active]="active()" type="button" [attr.aria-current]="active() ? 'page' : null">
+  @if (icon(); as i) {
+    <ct-icon [name]="i" [size]="20" />
+  }
+  <span>{{ label() }}</span>
+</button>

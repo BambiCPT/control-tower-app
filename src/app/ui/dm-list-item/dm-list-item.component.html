@@ -1,0 +1,12 @@
+<button class="ct-dm-item" [class.ct-dm-item--selected]="selected()" [class.ct-dm-item--unread]="unread() > 0"
+        type="button" [attr.aria-current]="selected() ? 'true' : null" (click)="activated.emit()">
+  <ct-avatar class="ct-dm-item__avatar" [name]="name()" size="md" shape="square" [tone]="tone()" [status]="status()" />
+  <span class="ct-dm-item__text">
+    <span class="ct-dm-item__name">{{ name() }}</span>
+    <span class="ct-dm-item__preview">{{ preview() }}</span>
+  </span>
+  <span class="ct-dm-item__meta">
+    <span class="ct-dm-item__time">{{ time() }}</span>
+    <ct-badge [count]="unread()" />
+  </span>
+</button>

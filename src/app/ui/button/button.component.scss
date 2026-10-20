@@ -1,0 +1,33 @@
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.ct-button {
+  @include ct-reset-button;
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--ct-space-2);
+  height: var(--ct-control-height); padding: 0 var(--ct-space-5);
+  border-radius: var(--ct-radius-sm);
+  color: var(--ct-text-primary); white-space: nowrap;
+  @include ct-type(button);
+  @include ct-dim-transition(background-color, box-shadow);
+
+  &:focus-visible { @include ct-focus-ring; }
+  &:disabled { cursor: not-allowed; background: var(--ct-bg-hover); color: var(--ct-text-muted); box-shadow: none; }
+
+  &--primary { background: var(--ct-accent); color: var(--ct-accent-on);
+    &:hover:not(:disabled) { background: var(--ct-accent-hover); }
+    &:active:not(:disabled) { background: var(--ct-accent-active); } }
+
+  &--secondary { background: var(--ct-bg-control); box-shadow: var(--ct-shadow-raised);
+    &:hover:not(:disabled) { background: var(--ct-bg-control-hover); }
+    &:active:not(:disabled) { background: var(--ct-bg-control-active); }
+    &:focus-visible { box-shadow: var(--ct-shadow-focus); } }
+
+  &--ghost { background: transparent; padding: 0 var(--ct-space-4);
+    &:hover:not(:disabled) { background: var(--ct-bg-hover); }
+    &:active:not(:disabled) { background: var(--ct-bg-raised); }
+    &:disabled { background: transparent; } }
+
+  &--danger { background: var(--ct-danger); color: var(--ct-danger-on);
+    &:hover:not(:disabled) { background: var(--ct-danger-hover); }
+    &:active:not(:disabled) { background: var(--ct-danger-active); } }
+}

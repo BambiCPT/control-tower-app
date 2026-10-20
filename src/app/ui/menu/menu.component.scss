@@ -1,0 +1,18 @@
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.ct-menu {
+  --ct-dot-ring-color: transparent;
+  background: var(--ct-bg-column); border: 1px solid var(--ct-border-default); border-radius: var(--ct-radius-lg);
+  box-shadow: var(--ct-shadow-menu); padding: var(--ct-space-2);
+  &__inner { display: flex; flex-direction: column; gap: var(--ct-space-half); }
+  &__item {
+    @include ct-reset-button;
+    display: flex; align-items: center; gap: var(--ct-space-3); height: var(--ct-control-height); padding: 0 var(--ct-space-3);
+    border-radius: var(--ct-radius-sm); color: var(--ct-text-primary); @include ct-type(input);
+    ct-icon { color: var(--ct-text-secondary); }
+    &:hover, &--active { background: var(--ct-bg-raised); }
+    &:focus-visible { @include ct-focus-ring; }
+  }
+  &__divider { margin: var(--ct-space-2) 0; border: 0; border-top: 1px solid var(--ct-border-default); }
+}

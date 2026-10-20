@@ -1,16 +1,10 @@
-.registration-container {
-  width: 4rem;
-  height: 6rem;
-  display: flex;
-  flex-direction: column;
+.registration {
+  width: 100%;
+  max-width: 400px;
 
-  form {
+  &__fields {
     display: flex;
     flex-direction: column;
-  }
-
-  .buttons {
-    display: flex;
-    flex-direction: column;
+    gap: var(--ct-space-4);
   }
 }

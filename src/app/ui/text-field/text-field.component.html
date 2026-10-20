@@ -1,0 +1,16 @@
+<div class="ct-field" [class.ct-field--filled]="variant() === 'filled'" [class.ct-field--invalid]="invalid()">
+  @if (label()) {
+    <label class="ct-field__label" [attr.for]="id">{{ label() }}</label>
+  }
+  <span class="ct-field__control" [class.ct-field--locked]="disabled() || readonly()">
+    @if (icon(); as i) {
+      <ct-icon class="ct-field__icon" [name]="i" [size]="20" />
+    }
+    <input class="ct-field__input" [id]="id" [type]="type()" [placeholder]="placeholder()" [value]="value()"
+           [disabled]="disabled()" [readOnly]="readonly()" [attr.aria-invalid]="invalid() || null"
+           [attr.aria-describedby]="invalid() ? id + '-err' : null" (input)="onInput($event)" />
+  </span>
+  @if (invalid() && errorText()) {
+    <span class="ct-field__error" [id]="id + '-err'" role="alert">{{ errorText() }}</span>
+  }
+</div>

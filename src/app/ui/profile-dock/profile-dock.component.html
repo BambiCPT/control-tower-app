@@ -1,0 +1,14 @@
+<div class="ct-dock" [class.ct-dock--open]="open()">
+  @if (open()) {
+    <ct-menu class="ct-dock__menu" [items]="items()" (picked)="pick($event)" />
+  }
+  <button class="ct-dock__row" type="button" aria-haspopup="menu" [attr.aria-expanded]="open()" (click)="open.set(!open())">
+    <ct-avatar [name]="name()" size="sm" shape="square" tone="self" [status]="status()" />
+    <span class="ct-dock__text">
+      <span class="ct-dock__name">{{ name() }}</span>
+      <span class="ct-dock__status">{{ statusLabel() }}</span>
+    </span>
+    <ct-icon class="ct-dock__icon" [name]="open() ? 'chevron-up' : 'sliders'" [size]="20"
+             ctTooltip="Settings" ctTooltipPlacement="top" />
+  </button>
+</div>

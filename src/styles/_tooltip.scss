@@ -1,0 +1,13 @@
+// Global: the tooltip element is appended to <body> by CtTooltipDirective.
+@use 'typography' as *;
+.ct-tooltip {
+  position: fixed; z-index: 1000; pointer-events: none;
+  padding: var(--ct-space-2) var(--ct-space-3);
+  border-radius: var(--ct-radius-sm);
+  background: var(--ct-bg-tooltip); color: var(--ct-text-on-tooltip);
+  @include ct-type(tooltip);
+  white-space: nowrap;
+  &::after { content: ''; position: absolute; width: 8px; height: 8px; background: inherit; transform: rotate(45deg); }
+  &--right::after { left: -3px; top: calc(50% - 4px); }
+  &--top::after { bottom: -3px; left: calc(50% - 4px); }
+}

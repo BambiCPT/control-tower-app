@@ -1,0 +1,32 @@
+// Generated from tokens.json. Do not edit by hand.
+@mixin ct-type($style) {
+  @if $style == page-title {
+    font: 600 26px/32px var(--font-sans);
+  } @else if $style == conversation-name {
+    font: 600 17px/24px var(--font-sans);
+  } @else if $style == username {
+    font: 600 15px/20px var(--font-sans);
+  } @else if $style == message {
+    font: 400 15px/22px var(--font-sans);
+  } @else if $style == helper {
+    font: 400 13px/18px var(--font-sans);
+  } @else if $style == timestamp {
+    font: 500 12px/16px var(--font-sans);
+  } @else if $style == section-label {
+    font: 600 11px/16px var(--font-sans);
+    letter-spacing: 0.12em;
+  } @else if $style == wordmark {
+    font: 700 13px/16px var(--font-sans);
+    letter-spacing: 0.24em;
+  } @else if $style == button {
+    font: 600 14px/20px var(--font-sans);
+  } @else if $style == input {
+    font: 400 15px/20px var(--font-sans);
+  } @else if $style == tooltip {
+    font: 600 13px/16px var(--font-sans);
+  } @else if $style == badge {
+    font: 700 11px/12px var(--font-sans);
+  } @else if $style == initials {
+    font: 700 13px/16px var(--font-sans);
+  }
+}

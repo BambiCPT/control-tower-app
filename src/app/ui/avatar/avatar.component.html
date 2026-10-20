@@ -1,0 +1,6 @@
+<span class="ct-avatar" [class]="'ct-avatar ct-avatar--' + size() + ' ct-avatar--' + shape() + ' ct-avatar--tone-' + tone()" aria-hidden="true">
+  <span class="ct-avatar__initials">{{ initials() }}</span>
+  @if (status(); as s) {
+    <ct-status-dot class="ct-avatar__status" [status]="s" />
+  }
+</span>

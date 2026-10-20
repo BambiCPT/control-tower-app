@@ -1,0 +1,30 @@
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.ct-message {
+  position: relative; display: flex; align-items: flex-start; gap: var(--ct-space-3);
+  padding: var(--ct-space-1) var(--ct-space-8) var(--ct-space-1) var(--ct-space-3);
+  margin: 0 calc(var(--ct-space-8) * -1 + var(--ct-space-2));
+  border-radius: var(--ct-radius-sm);
+
+  &__gutter { flex: none; width: var(--ct-avatar-md); display: flex; justify-content: center; }
+  &__body { flex: 1; min-width: 0; }
+  &__header { display: flex; align-items: baseline; gap: var(--ct-space-2); }
+  &__author { @include ct-type(username); color: var(--ct-text-primary); }
+  &__time { @include ct-type(timestamp); font-weight: 400; color: var(--ct-text-secondary); }
+  &__text { @include ct-type(message); color: var(--ct-text-primary); overflow-wrap: anywhere; max-width: 720px; }
+
+  &__gutter-time { @include ct-type(timestamp); font-weight: 400; color: var(--ct-text-secondary); visibility: hidden; line-height: 22px; }
+  &__more {
+    @include ct-reset-button; position: absolute; right: var(--ct-space-3); top: var(--ct-space-1);
+    display: none; align-items: center; justify-content: center; width: var(--ct-search-height); height: 22px;
+    border-radius: var(--ct-radius-sm); color: var(--ct-text-secondary);
+    &:hover { color: var(--ct-text-primary); }
+    &:focus-visible { @include ct-focus-ring; display: flex; }
+  }
+
+  &--continued { padding-top: 0; padding-bottom: 0; }
+  &:hover { background: var(--ct-bg-hover); }
+  &:hover &__more { display: flex; }
+  &:hover &__gutter-time { visibility: visible; }
+}

@@ -1,0 +1,21 @@
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.ct-dock {
+  --ct-dot-ring-color: var(--ct-bg-rail);
+  position: relative; width: 100%;
+  &__menu { position: absolute; left: var(--ct-space-2); right: var(--ct-space-2); bottom: calc(100% + var(--ct-space-2)); display: block; }
+  &__row {
+    @include ct-reset-button;
+    display: flex; align-items: center; gap: var(--ct-space-3); width: 100%; height: var(--ct-dock-height); padding: 0 var(--ct-space-5);
+    background: var(--ct-bg-rail); border: 1px solid transparent; border-radius: var(--ct-radius-lg);
+    @include ct-dim-transition(background-color, border-color);
+    &:hover { background: var(--ct-bg-column); border-color: var(--ct-border-default); --ct-dot-ring-color: var(--ct-bg-column); }
+    &:focus-visible { @include ct-focus-ring; }
+  }
+  &--open &__row { background: var(--ct-bg-column); border-color: var(--ct-border-default); --ct-dot-ring-color: var(--ct-bg-column); }
+  &__text { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+  &__name { @include ct-type(username); color: var(--ct-text-primary); @include ct-truncate; }
+  &__status { @include ct-type(timestamp); font-weight: 400; color: var(--ct-text-secondary); }
+  &__icon { color: var(--ct-text-primary); }
+}
